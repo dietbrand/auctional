@@ -40,6 +40,7 @@ public static class Config
                 RedirectUris = {"http://localhost:3000/api/auth/callback/id-server"},
                 AllowOfflineAccess = true,
                 AccessTokenLifetime = 3600*24*30,
+                AlwaysIncludeUserClaimsInIdToken = true,
             },
       };
 }
