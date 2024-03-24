@@ -1,4 +1,4 @@
-import { currencyFormatter } from '@/app/utils/utils';
+import { currencyFormatter } from '@/app/lib/utils';
 import { Bid } from '@/types';
 import { format } from 'date-fns';
 

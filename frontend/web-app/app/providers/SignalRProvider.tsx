@@ -18,15 +18,19 @@ const SignalRProvider = ({ children, user }: Props) => {
   const [connection, setConnection] = useState<HubConnection | null>(null);
   const setCurrentPrice = useAuctionsStore(state => state.setCurrentPrice);
   const addBid = useBidStore(state => state.addBid);
+  const apiURL =
+    process.env.NODE_ENV === 'production'
+      ? 'https://api.haven2.net/notifications'
+      : process.env.NEXT_PUBLIC_NOTIFY_URL;
 
   useEffect(() => {
     const newConn = new HubConnectionBuilder()
-      .withUrl('http://localhost:6001/notifications')
+      .withUrl(apiURL!)
       .withAutomaticReconnect()
       .build();
 
     setConnection(newConn);
-  }, []);
+  }, [apiURL]);
 
   useEffect(() => {
     if (connection) {
@@ -77,7 +81,7 @@ const SignalRProvider = ({ children, user }: Props) => {
     return () => {
       connection?.stop();
     };
-  }, [connection, setCurrentPrice]);
+  }, [addBid, connection, setCurrentPrice, user?.username]);
 
   return children;
 };

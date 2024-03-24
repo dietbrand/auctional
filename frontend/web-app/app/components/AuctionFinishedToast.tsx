@@ -1,7 +1,7 @@
 import { Auction, AuctionFinished } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import { currencyFormatter } from '../utils/utils';
+import { currencyFormatter } from '../lib/utils';
 
 type Props = {
   auction: Auction;

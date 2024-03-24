@@ -8,7 +8,7 @@ import { User } from 'next-auth';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import BidItem from './BidItem';
-import { currencyFormatter } from '@/app/utils/utils';
+import { currencyFormatter } from '@/app/lib/utils';
 import EmptyFilter from '@/app/components/EmptyFilter';
 import BidForm from './BidForm';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { PlaceBidForAuction } from '@/app/actions/auctionActions';
-import { currencyFormatter } from '@/app/utils/utils';
+import { currencyFormatter } from '@/app/lib/utils';
 import { useBidStore } from '@/hooks/useBidStore';
 import { FieldValues, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';

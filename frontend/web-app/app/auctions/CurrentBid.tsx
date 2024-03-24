@@ -1,4 +1,4 @@
-import { currencyFormatter } from '../utils/utils';
+import { currencyFormatter } from '../lib/utils';
 
 type Props = {
   amount?: number;
