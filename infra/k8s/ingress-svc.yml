@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-svc
+  labels:
+    name: ingress-svc
+spec:
+  tls:
+    - hosts:
+      - app.haven2.net
+      - api.haven2.net
+      - master-001.haven2.net
+      - worker-001.haven2.net
+      - worker-002.haven2.net
+      - worker-003.haven2.net
+      secretName: auctional-app-tls
+  rules:
+  - host: app.haven2.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: webapp-clusterip
+            port: 
+              number: 3000
+  - host: api.haven2.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: gateway-clusterip
+            port: 
+              number: 80

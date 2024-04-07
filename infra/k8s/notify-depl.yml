@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notify-svc
+spec:
+  selector:
+    matchLabels:
+      app: notify-svc
+  template:
+    metadata:
+      labels:
+        app: notify-svc
+    spec:
+      containers:
+      - name: notify-svc
+        image: dietbrand/notify-svc
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: RabbitMq__Host
+            value: rabbitmq-clusterip
+          - name: RabbitMq__Username
+            value: rabbit
+          - name: RabbitMq__Password
+            value: rabbitpw
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notify-clusterip
+spec:
+  selector:
+    app: notify-svc
+  ports:
+  - port: 80
+    targetPort: 8080
