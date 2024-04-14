@@ -18,4 +18,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PKEY }}
-          script: ~/.local/bin/kubectl -f infra/k8s
+          script: ~/.local/bin/kubectl apply -f infra/k8s
