@@ -1,16 +1,16 @@
-name: Build and push Auction Service image
+name: Build and push Notification Service image
 
 on:
   workflow_dispatch:
   push:
     branches: ['main']
     paths:
-      - 'src/AuctionService/**'
+      - 'src/NotificationService/**'
 
 env:
-  REGISTRY_IMAGE: dietbrand/auction-svc
-  DOCKERFILE: src/AuctionService/Dockerfile
-  DEPLOYMENT_NAME: auction-svc
+  REGISTRY_IMAGE: dietbrand/notify-svc
+  DOCKERFILE: src/NotificationService/Dockerfile
+  DEPLOYMENT_NAME: notify-svc
 
 jobs:
   docker:

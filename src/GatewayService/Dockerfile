@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 as builder
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 as builder
+ARG TARGETARCH
 WORKDIR /app
 EXPOSE 80
 
@@ -14,12 +15,12 @@ COPY src/Contracts/Contracts.csproj src/Contracts/Contracts.csproj
 COPY tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj
 COPY tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj
 
-RUN dotnet restore auctional.sln
+RUN dotnet restore -a $TARGETARCH auctional.sln
 
 COPY src/GatewayService src/GatewayService
 
 WORKDIR /app/src/GatewayService
-RUN dotnet publish -c Release -o /app/src/out
+RUN dotnet publish -a $TARGETARCH -c Release -o /app/src/out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app

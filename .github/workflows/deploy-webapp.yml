@@ -1,16 +1,16 @@
-name: Build and push Auction Service image
+name: Build and push Webapp image
 
 on:
   workflow_dispatch:
   push:
     branches: ['main']
     paths:
-      - 'src/AuctionService/**'
+      - 'frontend/web-app/**'
 
 env:
-  REGISTRY_IMAGE: dietbrand/auction-svc
-  DOCKERFILE: src/AuctionService/Dockerfile
-  DEPLOYMENT_NAME: auction-svc
+  REGISTRY_IMAGE: dietbrand/auctional-webapp
+  DOCKERFILE: frontend/web-app/Dockerfile
+  DEPLOYMENT_NAME: webapp
 
 jobs:
   docker:
