@@ -6,7 +6,7 @@ on:
     branches: ['main']
     paths:
       - 'infra/**'
-      - '.github'
+      - '.github/**'
 
 jobs:
   build:
