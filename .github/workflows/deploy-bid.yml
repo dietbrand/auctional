@@ -8,7 +8,7 @@ on:
       - 'src/BiddingService/**'
 
 env:
-  REGISTRY_IMAGE: dietbrand/did-svc
+  REGISTRY_IMAGE: dietbrand/bid-svc
   DOCKERFILE: src/BiddingService/Dockerfile
   DEPLOYMENT_NAME: bid-svc
 
