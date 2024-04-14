@@ -24,7 +24,7 @@ jobs:
       - name: Build and push the Docker image
         uses: docker/build-push-action@v3
         with:
-          context: '{{defaultcontext}}'
+          context: .
           platforms: linux/arm64
           file: ${{ env.DOCKERFILE }}
           push: true
