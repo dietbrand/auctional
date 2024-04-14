@@ -486,4 +486,7 @@ $RECYCLE.BIN/
 # devcerts
 devcerts/
 
+# k8s secrets
+secrets/
+
 .mono/
