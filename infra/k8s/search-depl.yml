@@ -22,11 +22,20 @@ spec:
           - name: RabbitMq__Host
             value: rabbitmq-clusterip
           - name: RabbitMq__Username
-            value: rabbit
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
           - name: RabbitMq__Password
-            value: rabbitpw
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password
           - name: ConnectionStrings__MongoDbConnection
-            value: mongodb://root:mongopw@mongo-clusterip/
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: connString
           - name: AuctionServiceUrl
             value: http://auction-clusterip
 ---

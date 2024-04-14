@@ -22,7 +22,10 @@ spec:
         - containerPort: 3000
         env:
           - name: NEXTAUTH_SECRET
-            value: 1We9aSPE7dkbBTkummIc
+            valueFrom:
+              secretKeyRef:
+                name: webapp-secret
+                key: authSecret
           - name: NEXTAUTH_URL
             value: https://app.haven2.net
           - name: API_URL
