@@ -1,9 +1,10 @@
 FROM --platform=$BUILDPLATFORM node:20-alpine AS deps
+ARG TARGETARCH
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY frontend/web-app/package*.json ./
-RUN  npm install --omit-dev
+RUN  npm install --arch=$TARGETARCH --omit-dev
 
 FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
 WORKDIR /app
