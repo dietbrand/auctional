@@ -14,7 +14,7 @@ COPY src/Contracts/Contracts.csproj src/Contracts/Contracts.csproj
 COPY tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj
 COPY tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj
 
-RUN dotnet restore auctional.sln
+RUN dotnet restore -a arm64 auctional.sln
 
 COPY src/AuctionService src/AuctionService
 COPY src/Contracts src/Contracts
