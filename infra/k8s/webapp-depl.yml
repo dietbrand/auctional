@@ -26,6 +26,11 @@ spec:
               secretKeyRef:
                 name: webapp-secret
                 key: authSecret
+          - name: CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: webapp-secret
+                key: clientSecret
           - name: NEXTAUTH_URL
             value: https://app.haven2.net
           - name: API_URL

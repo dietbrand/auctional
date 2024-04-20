@@ -13,7 +13,7 @@ COPY frontend/web-app ./
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npm run build
+RUN npm run build --arch=$TARGETARCH
 
 # production image, copy all files and run next
 FROM --platform=$BUILDPLATFORM node:20-alpine AS runner
