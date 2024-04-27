@@ -7,7 +7,7 @@ RUN  npm i --cpu arm64 --os linux --omit-dev
 
 FROM --platform=$BUILDPLATFORM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=base /app/node_modules ./node_modules
 COPY frontend/web-app ./
 
 ENV NEXT_TELEMETRY_DISABLED 1
